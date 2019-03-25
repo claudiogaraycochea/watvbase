@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style-modules.css">
+    </head>
+<body>
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-md-6"><h3 class="title">Buy Now</h3></div>
+                    <div  class="col-md-6 d-flex justify-content-end">
+                        <div class="url-wrapper">
+                            <div class="item">
+                                <i class="icon-url"></i>
+                            </div>
+                            <div class="item"><input id="module_url_input"  class="url-input" value=""/></div>
+                            <div class="item">
+                                <button id="btn_module_url" class="btn btn-sm ml-2" >Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="panel-interactivity" class="row d-flex align-items-stretch">
+            <div class="col-md-9 d-flex align-items-stretch">
+                <div class="box">
+                    <div class="d-flex">
+                        <form id="form-data" class="w-100">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="notification"></div>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-4 d-flex form-group">
+                                                <div>Logo <div id="uploading-logo-notification" class="small text-muted">Format PNG/JPG</div></div>
+                                                <div>
+                                                    <div class="btn-upload-image-wrapper ml-4">
+                                                        <input id="file_website_logo" type="file" class="form-control website-image-input" name="file_website_logo" accept="image/*" />
+                                                        <div id="website_logo_preview" class="website-image website-image-logo"></div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="data_logo_image" name="data_logo_image" class="input-change" />
+                                                <div class="btn-upload-tools-wrapper"><i id="btn-delete-logo" class="icon-trash"></i></div>
+                                            </div>
+                                            <div class="col-md-4 d-flex form-group">
+                                                <div>Image <div id="uploading-product-notification" class="small text-muted">Format PNG/JPG</div></div>
+                                                <div>
+                                                    
+                                                    <div class="btn-upload-product-wrapper ml-4">
+                                                        <input id="file_website_product" type="file" class="form-control website-image-input" name="file_website_background" accept="image/*" />
+                                                        <div id="website_product_preview" class="website-image website-image-product"></div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="data_product_image" name="data_product_image" class="input-change" />
+                                                <div class="btn-upload-tools-wrapper"><i id="btn-delete-product" class="icon-trash"></i></div>
+                                            </div>
+                                            <div class="col-md-4 d-flex form-group">
+                                                <div>Background <div id="uploading-background-notification" class="small text-muted">Format PNG/JPG</div></div>
+                                                <div>
+                                                    <div class="btn-upload-image-wrapper ml-4">
+                                                        <input id="file_website_background" type="file" class="form-control website-image-input" name="file_website_background" accept="image/*" />
+                                                        <div id="website_background_preview" class="website-image website-image-background"></div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="data_background_image" name="data_background_image" class="input-change" />
+                                                <div class="btn-upload-tools-wrapper"><i id="btn-delete-background" class="icon-trash"></i></div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="data_title" name="data_title" class="form-control input-change" required="" placeholder="Title">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="data_subtitle" name="data_subtitle" class="form-control input-change" required="" placeholder="Subtitle">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="data_button_label" name="data_button_label" class="form-control input-change" required="" placeholder="Button Label">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="url" id="data_button_url" name="data_button_url" class="form-control input-change" required="" placeholder="Button URL (ej: https://example.com)">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="d-flex">
+                                            <div>Background <input type="color" id="data_background_color" name="data_background_color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#ffffff" class="input-change"></div>
+                                            <div class="ml-4">Font <input type="color" id="data_font_color" name="data_font_color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#000000" class="input-change"></div>
+                                            <div class="ml-4">Button <input type="color" id="data_button_background_color" name="data_button_background_color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#000000" class="input-change"></div>
+                                            <div class="ml-4">Button Font <input type="color" id="data_button_font_color" name="data_button_font_color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#ffffff" class="input-change"></div>
+                                            <div class="ml-4">Theme 
+                                                <select id="theme_predef"></select>
+                                            </div>
+                                            <div class="ml-4">Font 
+                                                <select id="font_predef"></select>
+                                                <input type="hidden" id="data_font_family" name="data_font_family" value="Open Sans">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-lg float-right btn-primary" id="btnLogin"><i class="icon-save btn-space"></i>Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-items-stretch">
+                <div class="box">
+                    <div id="module-preview" class="interactivity-list">
+                        <div id="render-data"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="modules/websitebuynow/js/instant-websitebuynow.js"></script>
+</body>
+</html>
