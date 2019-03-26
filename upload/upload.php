@@ -76,32 +76,32 @@
 		return @round($bytes / pow(1024, ($i = floor(log($bytes, 1024)))), $precision).' '.$unit[$i];
 	}
 
-	$sFileName = $_FILES['file_background']['name'];
-	$sFileType = $_FILES['file_background']['type'];
-	$sFileSize = bytesToSize1024($_FILES['file_background']['size'], 1);
+	$sFileName = $_FILES['file']['name'];
+	$sFileType = $_FILES['file']['type'];
+	$sFileSize = bytesToSize1024($_FILES['file']['size'], 1);
 					
-	$tmp_name = $_FILES["file_background"]["tmp_name"];
-	$path_parts = pathinfo($_FILES["file_background"]["name"]);
+	$tmp_name = $_FILES["file"]["tmp_name"];
+	$path_parts = pathinfo($_FILES["file"]["name"]);
 	$extension = $path_parts['extension'];
-	$name = $_FILES["file_background"]["name"];
-	$size = $_FILES["file_background"]["size"];
-	$website_id = $_POST["website_id"];
+	$name = $_FILES["file"]["name"];
+	$size = $_FILES["file"]["size"];
+	$website_id = '1';
 	$hash=date('dMYHis');
-	$name_file = 'website_bg_'.$_POST["website_id"].'_'.$hash.'.'.$extension;
+	$name_file = 'website_bg_'.$website_id.'_'.$hash.'.'.$extension;
 
 	$dirname = $website_id;  
-	$filename = "/uploads/website/{$dirname}";  
+	$filename = "/upload/{$dirname}";  
 	if(($size<5000000)&&(($extension=='jpg')||($extension=='png'))){
 		if (!file_exists($filename)) {  
 			mkdir($filename, 0777);
 		}
-		if(move_uploaded_file($tmp_name, '/uploads/website/'.$dirname.'/'.$name_file)){
+		if(move_uploaded_file($tmp_name, '/upload/'.$dirname.'/'.$name_file)){
 			$data['filename']=$name_file;
-			$data['website_background']='https://modules.weband.tv/uploads/website/'.$dirname.'/'.$name_file;
+			$data['filename_server']='https://modules.weband.tv/upload/'.$dirname.'/'.$name_file;
 			echo json_encode($data);
 
-			$original=$data['website_background'];
-			$destino='/uploads/website/'.$dirname.'/'.$name_file;
+			$original=$data['filename_server'];
+			$destino='/upload/'.$dirname.'/'.$name_file;
 			$big=300;
 			$type='jpg';
 			upload_photo($original,$destino,$big,$type);
