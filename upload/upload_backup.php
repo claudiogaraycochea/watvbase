@@ -8,7 +8,11 @@
 	$file_name = $_FILES["image"]["name"];
   $file_type = $_FILES["image"]["type"];
 	$file_size = $_FILES["image"]["size"];
-	
+	echo "file_size:".$file_size;
+	if($file_size==''){
+		echo "Size exceed";
+		die();
+	}
   $user_id = $_POST["user"];
   /*echo "File Name: ".$file_name;
   echo "File Type: ".$file_type;
