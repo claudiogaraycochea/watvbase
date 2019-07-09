@@ -150,6 +150,7 @@
             $visitor_email = $this->_request['visitor_email'];
             $visitor_firstname = $this->_request['visitor_firstname'];
             $visitor_lastname = $this->_request['visitor_lastname'];
+            $visitor_image = $this->_request['visitor_image'];
 
             if($visitor_email!=''){
                 $mysql=$this->db;
@@ -158,6 +159,8 @@
                 if($row['visitor_email']){
                     $data['visitor_id']=$row['visitor_id'];
                     $data['visitor_firstname']=$row['visitor_firstname'];
+                    $data['visitor_lastname']=$row['visitor_lastname'];
+                    $data['visitor_image']=$row['visitor_image'];
                     $data['visitor_token']=sha1($row['visitor_id']."-".gmdate('H:i:s'));
                     $this->setSessionVisitorToken($row['visitor_id'],$data['visitor_token']);
                     $data['status'] = 'updated';
@@ -166,10 +169,12 @@
                 else {
                     $visitor_password = 'Yxu456';
                     $visitor_date = gmdate('Y/m/d H:i:s');
-                    $sql = "INSERT INTO visitor (visitor_email,visitor_password,visitor_firstname,visitor_lastname,visitor_token,visitor_date) VALUES ('$visitor_email','$visitor_password','$visitor_firstname','$visitor_lastname','$visitor_token','$visitor_date')";
+                    $sql = "INSERT INTO visitor (visitor_email,visitor_password,visitor_firstname,visitor_lastname,visitor_image,visitor_token,visitor_date) VALUES ('$visitor_email','$visitor_password','$visitor_firstname','$visitor_lastname','$visitor_image','$visitor_token','$visitor_date')";
                     if ($result = $mysql->query($sql)) {
                         $data['visitor_id']=$mysql->insert_id;
                         $data['visitor_firstname']=$visitor_firstname;
+                        $data['visitor_lastname']=$visitor_lastname;
+                        $data['visitor_image']=$visitor_image;
                         $data['visitor_token']=sha1($data['visitor_id']."-".gmdate('H:i:s'));
                         $this->setSessionVisitorToken($data['visitor_id'],$data['visitor_token']);
                         $data['result'] = 'true';
