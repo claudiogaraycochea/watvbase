@@ -264,58 +264,6 @@
            // mail('computadoraweb@gmail.com', $subject, $message);
         }
 
-        // SIGN UP LP
-        private function signUpLP(){   
-    
-            if($this->get_request_method() != "POST"){
-                $this->response('',406);
-            }
-
-            $linkname = $this->_request['linkname'];
-            $firstname = $this->_request['firstname'];
-            $lastname = $this->_request['lastname'];
-            $telephone = $this->_request['telephone'];
-            $email = $this->_request['email'];
-            $password = $this->_request['password'];
-            
-            if($email != ''){
-                $data_result['result']='true';
-                //SendEmail
-                $data['to']='computadoraweb@gmail.com';
-                $data['subject']='WebAnd.tv';
-                $data['message']='<p>Linkname: '.$linkname.'</p><p>Firstname: '.$firstname.'</p><p>Lastname: '.$lastname.'</p><p>Telephone: '.$telephone.'</p><p>Email: '.$email.'</p><p>Password: '.$password.'</p>';
-                $this->sendEmail($data);
-
-                $this->response($this->json($data_result), 200);
-            }
-            $this->response('',204);
-        }
-
-        // SIGN UP LP
-        private function sendMessage(){   
-
-            if($this->get_request_method() != "POST"){
-                $this->response('',406);
-            }
-
-            $firstname = $this->_request['firstname'];
-            $lastname = $this->_request['lastname'];
-            $email = $this->_request['email'];
-            $message = $this->_request['message'];
-            
-            if($email != ''){
-                $data_result['result']='true';
-                //SendEmail
-                $data['to']='computadoraweb@gmail.com';
-                $data['subject']='WebAnd.tv Message';
-                $data['message']='<p>Firstname: '.$firstname.'</p><p>Lastname: '.$lastname.'</p><p>Email: '.$email.'</p><p>Message: '.$message.'</p>';
-                $this->sendEmail($data);
-
-                $this->response($this->json($data_result), 200);
-            }
-            $this->response('',204);
-        }
-
         private function lu(){
             if($this->get_request_method() != "POST"){
                 $this->response('',406);
