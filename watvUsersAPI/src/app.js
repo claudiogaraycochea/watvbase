@@ -9,6 +9,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(cors());
 app.use(express.json());
 
+// Routes
+app.use('/api/users', require('./routes/users'));
+app.use('/api/channels', require('./routes/channels'));
+
 module.exports = app;
 /*const express = require('express');
 const app = express();
