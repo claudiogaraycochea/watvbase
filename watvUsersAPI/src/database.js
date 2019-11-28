@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-const URI = process.env.MONGODB_URI;
+const URI = process.env.MONGODB_URI 
+  ? process.env.MONGODB_URI 
+  : 'mongodb://localhost/webandtvdb';
 console.log('URI: ', URI);
 mongoose.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
