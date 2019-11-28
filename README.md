@@ -1,3 +1,5 @@
 # watvbase
 
-Testing.
+## watvUsersAPI 
+Install nodemon
+$ npm install nodemon -D
