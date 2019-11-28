@@ -1,5 +1,9 @@
 const express = require('express');
 const app = express();
+
+module.exports = app;
+/*const express = require('express');
+const app = express();
 const morgan = require('morgan');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
@@ -26,4 +30,4 @@ app.use('/api/channels', require('./routes/channels'));
 // Starting the server
 app.listen(app.get('port'), () => {
   console.log(`Server on port ${3000}`);
-});
+});*/
