@@ -10,8 +10,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/users', require('./routes/users'));
-app.use('/api/channels', require('./routes/channels'));
+// app.use('/api/channels', require('./routes/channels'));
 
 module.exports = app;
 /*const express = require('express');
