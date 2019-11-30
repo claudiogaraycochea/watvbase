@@ -22,7 +22,7 @@ usersCtrl.createUser = async (req, res) => {
     firstname,
     lastname,
     email,
-    password,
+    password
   })
   await newUser.save();
   console.log(newUser);

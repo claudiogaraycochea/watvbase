@@ -24,6 +24,21 @@ const profileSchema = new Schema({
   timezone: {
     type: String,
   },
+  data: {
+    profile_type: {
+      type: Number,
+    },
+    image: {
+      type: String,
+    }
+  },
+  schedule: [
+    {
+      name: String,
+      url: String,
+      execute_time: String
+    }
+  ]
 }, {
   timestamps: true,
 });
