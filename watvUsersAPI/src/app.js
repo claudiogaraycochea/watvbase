@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const auth = require('./middlewares/auth');
 
 // Settings
 app.set('port', process.env.PORT || 3000);
@@ -12,6 +13,9 @@ app.use(express.json());
 // Routes
 app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/private/:token', auth.isAuth, function(req, res) {
+  res.status(200).send({ message: 'Access approved' })
+});
 // app.use('/api/channels', require('./routes/channels'));
 
 module.exports = app;
