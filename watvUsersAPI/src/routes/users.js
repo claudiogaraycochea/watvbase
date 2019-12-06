@@ -3,6 +3,7 @@ const router = Router();
 
 const { 
   getUsers,
+  loginUser,
   createUser,
   removeUser,
   updateUser,
@@ -11,6 +12,9 @@ const {
 router.route('/')
   .get(getUsers)
   .post(createUser);
+
+router.route('/login')
+  .post(loginUser);
 
 router.route('/:id')
   .delete(removeUser)
